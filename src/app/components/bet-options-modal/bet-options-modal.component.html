@@ -1,0 +1,21 @@
+<div class="fixed inset-0 flex items-center justify-end z-50">
+  <div class="w-96 h-full bg-black text-gray-300 shadow-lg overflow-y-auto">
+    <div class="flex justify-between items-center p-4 border-b">
+      <h4 class="text-lg font-semibold">Select Bet Amount</h4>
+      <button type="button" class="text-white" (click)="bsModalRef.hide()">
+        ✖
+      </button>
+    </div>
+    <div class="p-4">
+      <ul class="list-none">
+        <li
+          *ngFor="let amount of betOptions"
+          (click)="selectBet(amount)"
+          class="cursor-pointer py-2 px-4 hover:bg-gray-600"
+        >
+          {{ amount | currency }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

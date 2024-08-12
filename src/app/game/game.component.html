@@ -1,0 +1,47 @@
+<div class="flex flex-col h-[600px] w-[1000px]">
+  <div class="flex-1 bg-cover bg-black bg-center relative">
+    <div class="game-placeholder"></div>
+
+    <div
+      class="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center gap-4 p-4"
+    >
+      <button
+        class="w-20 h-20 bg-cover bg-center bg-no-repeat rounded-full border-none focus:outline-none"
+        style="
+          background-image: url('https://t3.ftcdn.net/jpg/05/84/37/86/360_F_584378682_yF6nd2iIFf4vfEHVrsb8ibTqUXcwRAbE.jpg');
+        "
+        aria-label="Spin"
+      ></button>
+      <button
+        class="bg-gray-600 px-6 py-3 rounded-full text-white"
+        (click)="openBuyFeatureModal()"
+      >
+        Buy Feature
+      </button>
+    </div>
+    <div
+      class="absolute bottom-0 flex items-center w-full px-4 py-2 text-white"
+    >
+      <div class="absolute left-2 text-lg">
+        Balance <br /><strong>$100000</strong>
+      </div>
+
+      <div class="flex flex-1 justify-center">
+        <div class="flex items-center gap-4">
+          <button
+            class="text-2xl bg-transparent text-white focus:outline-none"
+            (click)="openMenuDialog()"
+          >
+            ☰
+          </button>
+          <app-bet-options></app-bet-options>
+        </div>
+      </div>
+
+      <div class="absolute right-2 text-right text-lg">
+        Win <br />
+        <strong>$100</strong>
+      </div>
+    </div>
+  </div>
+</div>

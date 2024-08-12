@@ -1,0 +1,23 @@
+<div class="flex items-center gap-0">
+  <button
+    (click)="decreaseBet()"
+    class="bg-gray-600 px-4 py-2 rounded-l-full text-white"
+  >
+    -
+  </button>
+  <button (click)="openBetModal()" class="bg-gray-600 border-x-2 px-4 py-2 text-white">
+    Bet {{ currentBet | currency }}
+  </button>
+  <button
+    (click)="increaseBet()"
+    class="bg-gray-600 px-4 py-2 rounded-r-full text-white"
+  >
+    +
+  </button>
+  <button
+    (click)="openAutoPlayModal()"
+    class="bg-gray-600 ml-2 px-4 py-2 rounded-full text-white"
+  >
+    Auto
+  </button>
+</div>
