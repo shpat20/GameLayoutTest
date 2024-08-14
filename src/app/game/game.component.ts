@@ -3,12 +3,13 @@ import { BetOptionsComponent } from '../components/bet-options/bet-options.compo
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { HamburgerMenuDialogComponent } from '../components/hamburger-menu/hamburger-menu.component';
 import { BuyFeatureButtonComponent } from '../components/buy-feature-button/buy-feature-button.component';
+import { CommonModule, CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [BetOptionsComponent],
-  providers: [BsModalService],
+  imports: [BetOptionsComponent, CommonModule],
+  providers: [BsModalService, CurrencyPipe],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',
 })
@@ -16,10 +17,17 @@ export class GameComponent {
   bsModalRef?: BsModalRef;
   bonusImageUrl: string =
     'https://logowik.com/content/uploads/images/free-vector-egyptian-pyramids-with-sphinxsilhouette5248.logowik.com.webp'; // URL of the bonus image
-  currentBet: number = 0;
+  currentBet: number = 0.1;
+  balance: number = 1000;
+  win: number = 100;
+  
+  
+  constructor(
+    private modalService: BsModalService,
+    public currencyPipe: CurrencyPipe
+  ) {}
 
-  constructor(private modalService: BsModalService) {}
-
+  
   openMenuDialog() {
     this.bsModalRef = this.modalService.show(HamburgerMenuDialogComponent);
   }
@@ -32,4 +40,6 @@ export class GameComponent {
       },
     });
   }
+  
 }
+

@@ -11,10 +11,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrl: './buy-feature-button.component.css',
 })
 export class BuyFeatureButtonComponent {
-  @Input() currentBet: number = 0;
   bonusImageUrl: string =
     'https://logowik.com/content/uploads/images/free-vector-egyptian-pyramids-with-sphinxsilhouette5248.logowik.com.webp'; // URL of the bonus image
   betOptions: number[] = [0.1, 0.2, 0.4, 0.6, 0.8, 1, 2, 4, 6, 8, 10, 20, 40];
+  @Input() currentBet: number = this.betOptions[0];
 
   constructor(
     public bsModalRef: BsModalRef,

@@ -13,9 +13,10 @@ import { AutoPlayButtonComponent } from '../auto-play-button/auto-play-button.co
   styleUrl: './bet-options.component.css',
 })
 export class BetOptionsComponent {
-  currentBet: number = 0.1;
   modalRef?: BsModalRef;
   betOptions: number[] = [0.1, 0.2, 0.4, 0.6, 0.8, 1, 2, 4, 6, 8, 10, 20, 40];
+  currentBet: number = this.betOptions[0];  
+
 
   constructor(private modalService: BsModalService) {}
 

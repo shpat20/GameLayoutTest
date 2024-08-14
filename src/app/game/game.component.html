@@ -1,46 +1,50 @@
-<div class="flex flex-col h-[600px] w-[1000px]">
+<div
+  class="flex flex-col h-4/5 w-4/5 min-h-[500px] min-w-[300px] sm:min-h-[280px] sm:min-w-[600px] md:min-w-[700px] lg:min-w-[800px] lg:min-h-[600px]"
+>
   <div class="flex-1 bg-cover bg-black bg-center relative">
-    <div class="game-placeholder"></div>
-
     <div
-      class="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center gap-4 p-4"
+      class="absolute h-fill bottom-0 sm:top-1/2 right-0 left-0 sm:left-auto transform -translate-y-1/2 flex sm:flex-col justify-center sm:items-center gap-4 sm:gap-2 sm:p-0 sm:mr-4 p-4 my-4"
     >
       <button
-        class="w-20 h-20 bg-cover bg-center bg-no-repeat rounded-full border-none focus:outline-none"
+        class="w-16 h-16 sm:w-14 sm:h-14 md:w-20 md:h-20 bg-gray-600 px-6 py-3 rounded-full text-white text-center justify-center focus:outline-none"
+        (click)="openBuyFeatureModal()"
+      >
+        Buy
+      </button>
+      <button
+        class="w-16 h-16 sm:w-14 sm:h-14 md:w-20 md:h-20 bg-cover bg-center bg-no-repeat rounded-full border-none focus:outline-none"
         style="
           background-image: url('https://t3.ftcdn.net/jpg/05/84/37/86/360_F_584378682_yF6nd2iIFf4vfEHVrsb8ibTqUXcwRAbE.jpg');
         "
         aria-label="Spin"
       ></button>
-      <button
-        class="bg-gray-600 px-6 py-3 rounded-full text-white"
-        (click)="openBuyFeatureModal()"
-      >
-        Buy Feature
-      </button>
     </div>
+
     <div
-      class="absolute bottom-0 flex items-center w-full px-4 py-2 text-white"
+      class="absolute justify-between md:bottom-0 flex items-center w-full px-4 py-2 text-white text-base md:text-lg"
     >
-      <div class="absolute left-2 text-lg">
-        Balance <br /><strong>$100000</strong>
+      <div class="left-2 top-0 md:bottom-0">
+        Balance <br /><strong>{{
+          currencyPipe.transform(balance, "USD", "symbol")
+        }}</strong>
       </div>
-
-      <div class="flex flex-1 justify-center">
-        <div class="flex items-center gap-4">
-          <button
-            class="text-2xl bg-transparent text-white focus:outline-none"
-            (click)="openMenuDialog()"
-          >
-            ☰
-          </button>
-          <app-bet-options></app-bet-options>
-        </div>
-      </div>
-
-      <div class="absolute right-2 text-right text-lg">
+      <div class="right-2 top-0 md:bottom-0 text-right">
         Win <br />
-        <strong>$100</strong>
+        <strong>{{ currencyPipe.transform(win, "USD", "symbol") }}</strong>
+      </div>
+    </div>
+
+    <div
+      class="absolute flex flex-1 w-full bottom-5 sm:bottom-2 md:bottom-0 justify-center"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          class="text-xl sm:mr-4 sm:text-lg md:text-2xl md:mb-5 bg-transparent text-white focus:outline-none"
+          (click)="openMenuDialog()"
+        >
+          ☰
+        </button>
+        <app-bet-options></app-bet-options>
       </div>
     </div>
   </div>
